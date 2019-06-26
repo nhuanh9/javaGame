@@ -5,15 +5,15 @@ let lives = 3;
 let ship = new Ship();
 let bullets = [];
 let obstacles = [];
-let img1 = "bat-icon.png";
+let img1 = "spaceship-png-11552949252oedlxwxhur.png";
 let img2 = "Animals-Dragonfly-icon.png";
 let img3 = "bat-icon 1.png";
-let img4 = "Bats-icon.png";
+let img4 = "101213578-powerful-fighter-jet-fast-military-aircraft-aviation-theme-flat-vector-design-for-online-mobile-game.png";
 let arrObstacle = [img1, img2, img3, img4, img1, img2, img3, img4, img1, img4];
 let timeOutBullet = 150;
 let timeOutObj = 300;
 let background = new Image();
-background.src = "utah-sky-4I7C7611.jpg";
+background.src = "c21fa842a0d5c860a9159ef5dbcfddfe.jpg";
 document.addEventListener("mousemove", mouseMoveHandler, false);
 
 function mouseMoveHandler(e) {

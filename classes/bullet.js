@@ -6,7 +6,7 @@ function Bullet(x, y, id) {
     this.dy = -5;
     // this.ballRadius = 5;
     this.img = new Image();
-    this.img.src = "Single-Bullet-icon.png";
+    this.img.src = "46059738-cartoon-rocket-space-ship.png";
     this.draw = function () {
         // ctx.beginPath();
         // ctx.arc(this.x, this.y, this.ballRadius, 0, Math.PI * 2);
