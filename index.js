@@ -12,6 +12,8 @@ let img4 = "Bats-icon.png";
 let arrObstacle = [img1, img2, img3, img4, img1, img2, img3, img4, img1, img4];
 let timeOutBullet = 150;
 let timeOutObj = 300;
+let background = new Image();
+background.src = "utah-sky-4I7C7611.jpg";
 document.addEventListener("mousemove", mouseMoveHandler, false);
 
 function mouseMoveHandler(e) {
@@ -20,17 +22,19 @@ function mouseMoveHandler(e) {
         ship.x = relativeX - ship.width / 2;
     }
 }
-
+function drawBackground() {
+    ctx.drawImage(background,0,0);
+}
 function drawScore() {
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.font = "25px Arial";
+    ctx.fillStyle = "#dddb00";
     ctx.fillText("Score: " + score, 8, 20);
 }
 
 function drawLives() {
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
-    ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
+    ctx.font = "25px Arial";
+    ctx.fillStyle = "#b8dd00";
+    ctx.fillText("Lives: " + lives, canvas.width - 100, 20);
 }
 
 function drawBullets() {
@@ -66,12 +70,13 @@ function drawObstacles() {
 }
 
 function draw() {
-    if (score >100 && score%100 <= 20) {
+    if (score > 100 && score % 100 <= 20) {
         requestAnimationFrame(addOstacle);
-    } else if (score >400 && score%100 <= 50){
+    } else if (score > 400 && score % 100 <= 50) {
         requestAnimationFrame(addOstacle);
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBackground();
     drawBullets();
     drawObstacles();
     ship.draw();
