@@ -38,8 +38,10 @@ function Obstacle() {
 
         if (this.y + this.height > canvas.height - ship.height && (this.x > ship.x && this.x < ship.x + ship.width || ship.x >= this.x && ship.x < this.x + this.width)) {
             lives--;
+            document.getElementById("audio3").play();
             if (!lives) {
                 alert("GAME OVER");
+                document.getElementById("audio2").play();
                 document.location.reload();
             }
             this.status = false;

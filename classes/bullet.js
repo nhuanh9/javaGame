@@ -24,6 +24,7 @@ function Bullet(x, y, speed) {
                 if (self.x > obstacle.x && self.x < obstacle.x + obstacle.width)
                     if (self.y > obstacle.y && self.y < obstacle.y + obstacle.height) {
                         self.status = false;
+                        document.getElementById("audio").play();
                         obstacle.status = false;
                         score++;
                         return;
@@ -45,6 +46,7 @@ function Bullet(x, y, speed) {
                         return;
                     }
                 if (boss.life === 0) {
+                    document.getElementById("audio1").play();
                     score += 10;
                     boss.status = false;
                 }

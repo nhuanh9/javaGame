@@ -61,6 +61,7 @@ function drawBullets(bullets) {
         bullet.move();
     })
 }
+
 function drawBulletsBoss(bullets) {
     bulletsBoss = bullets.filter(e => e.status);
     bullets.forEach(function (bullet) {
@@ -68,6 +69,7 @@ function drawBulletsBoss(bullets) {
         bullet.move();
     })
 }
+
 function isLevelUp() {
     let speedBullets = Math.floor(score / 50);
     if (score >= 50 && score % 50 === 1) {
@@ -83,10 +85,12 @@ function shootFromShip() {
     let bullet = new Bullet(ship.x + ship.width / 3, ship.y, -3);
     bullets.push(bullet);
 }
+
 function shootFromBoss() {
-    let bullet = new BulletBoss(bossTrue.x + bossTrue.width / 3, bossTrue.y+bossTrue.height+5, 5);
+    let bullet = new BulletBoss(bossTrue.x + bossTrue.width / 3, bossTrue.y + bossTrue.height + 5, 3);
     bulletsBoss.push(bullet);
 }
+
 function addOstacle() {
     let obstacle = new Obstacle();
     obstacle.img.src = arrObstacle[Math.round(Math.random() + 2)];
@@ -106,7 +110,7 @@ function drawObstacles() {
 function addBoss() {
     let boss = new Boss();
     bossTrue = boss;
-    setInterval(shootFromBoss,300);
+    setInterval(shootFromBoss, 300);
 
     bosses.push(boss);
 }
@@ -127,7 +131,7 @@ function draw() {
     drawObstacles();
     ship.draw();
     drawBoss();
-    if (bossTrue.status === true){
+    if (bossTrue.status === true) {
         drawBulletsBoss(bulletsBoss);
     } else {
         bulletsBoss = [];
