@@ -22,12 +22,12 @@ function BulletBoss(x, y, speed) {
             if (self.x + 24 > ship.x && self.x + 24 < ship.x + ship.width && self.y + 25 > ship.y && self.y + 25 < ship.y + ship.height) {
                 self.status = false;
                 lives -= 0.5;
+                document.getElementById("audio3").play();
             }
         }
         if (!lives) {
             alert("GAME OVER");
-            lives = 3;
-            score = 0;
+            document.location.reload();
         }
     };
 }

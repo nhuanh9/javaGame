@@ -41,7 +41,7 @@ function Obstacle() {
             document.getElementById("audio3").play();
             if (!lives) {
                 alert("GAME OVER");
-                document.getElementById("audio2").play();
+                document.getElementById("audio3").play();
                 document.location.reload();
             }
             this.status = false;
