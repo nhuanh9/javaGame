@@ -133,6 +133,8 @@ function draw() {
     drawBoss();
     if (bossTrue.status === true) {
         drawBulletsBoss(bulletsBoss);
+    } else {
+        bulletsBoss = [];
     }
     drawLevel();
     drawScore();

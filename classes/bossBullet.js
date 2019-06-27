@@ -18,19 +18,16 @@ function BulletBoss(x, y, speed) {
 
     this.collisionDetection = function (ship) {
         let self = this;
-        if (lives>0) {
-            if (self.x+24 > ship.x && self.x+24 < ship.x + ship.width)
-                if (self.y+25 > ship.y && self.y+25 < ship.y + ship.height) {
-                    self.status = false;
-                    ship.status = false;
-                    lives--;
-                    return;
-                }
-        } else {
+        if (lives > 0) {
+            if (self.x + 24 > ship.x && self.x + 24 < ship.x + ship.width && self.y + 25 > ship.y && self.y + 25 < ship.y + ship.height) {
+                self.status = false;
+                lives -= 0.5;
+            }
+        }
+        if (!lives) {
             alert("GAME OVER");
             lives = 3;
             score = 0;
-            document.location.reload();
         }
     };
 }
