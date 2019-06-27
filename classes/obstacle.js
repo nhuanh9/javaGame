@@ -1,23 +1,15 @@
 function Obstacle() {
 
     this.status = true;
-    this.x = Math.floor((Math.random() * canvas.height) + 1);
+    this.x = Math.round(Math.random() * canvas.height);
     this.y = 0;
     this.dx = Math.random();
     this.dy = 2;
-    // this.width = Math.floor((Math.random() * 50) + 30);
-    // this.height = Math.floor((Math.random() * 50) + 30);
     this.width = 72;
     this.height = 72;
     this.img = new Image();
     this.img.src = "bat-icon.png";
-    this.timeoutObs = 300;
     this.draw = function () {
-        // ctx.beginPath();
-        // ctx.rect(this.x, this.y, this.width, this.height);
-        // ctx.fillStyle = "#dd0007";
-        // ctx.fill();
-        // ctx.closePath();
         ctx.drawImage(this.img, this.x, this.y);
         this.collisionDetection();
     };
@@ -28,12 +20,15 @@ function Obstacle() {
     };
 
     this.collisionDetection = function () {
-        if (score>100){
+        if (score > 100) {
             this.dy = 5;
-        } else if (score>300){
+            level = 2;
+        } else if (score > 300) {
             this.dy = 10;
-        } else if (score>500){
+            level = 3;
+        } else if (score > 500) {
             this.dy = 20;
+            level = 4;
         }
 
         if (this.x > canvas.width || this.x < 0 || this.y + this.height > canvas.height) {

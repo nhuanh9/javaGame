@@ -1,26 +1,21 @@
-function Bullet(x, y, id) {
+function Bullet(x, y, speed) {
     this.status = true;
     this.x = x;
     this.y = y;
     this.dx = 0;
-    this.dy = -5;
-    // this.ballRadius = 5;
+    this.dy = speed;
     this.img = new Image();
     this.img.src = "46059738-cartoon-rocket-space-ship.png";
     this.draw = function () {
-        // ctx.beginPath();
-        // ctx.arc(this.x, this.y, this.ballRadius, 0, Math.PI * 2);
-        // ctx.fillStyle = "#0095DD";
-        // ctx.fill();
-        // ctx.closePath();
         ctx.drawImage(this.img, this.x, this.y);
         this.collisionDetection();
-    }
+        this.collisionDetectionBoss();
+    };
 
     this.move = function () {
         this.x += this.dx;
         this.y += this.dy;
-    }
+    };
 
     this.collisionDetection = function () {
         let self = this;
@@ -33,6 +28,26 @@ function Bullet(x, y, id) {
                         score++;
                         return;
                     }
+            }
+        });
+
+        if (this.x < 0)
+            this.status = false;
+    };
+    this.collisionDetectionBoss = function () {
+        let self = this;
+        bosses.forEach(function (boss) {
+            if (boss.status) {
+                if (self.x > boss.x && self.x < boss.x + boss.width)
+                    if (self.y > boss.y && self.y < boss.y + boss.height) {
+                        self.status = false;
+                        boss.life--;
+                        return;
+                    }
+                if (boss.life === 0) {
+                    score += 10;
+                    boss.status = false;
+                }
             }
         });
 
